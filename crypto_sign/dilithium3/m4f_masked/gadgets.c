@@ -176,7 +176,7 @@ void secadd_constant_bmsk(size_t nshares, size_t kbits, size_t kbits_out,
     } else {
       // compute the carry
       masked_xor(nshares, &out[i * out_data_stride], out_msk_stride, carry, 1,
-                 &in1[i * in1_data_stride], 1);
+                 &in1[i * in1_data_stride], in1_msk_stride);
 
       if ((i == (kbits - 1)) && (i == (kbits_out - 1))) {
         return;
@@ -245,7 +245,7 @@ void secadd_constant(size_t nshares, size_t kbits, size_t kbits_out,
     } else {
       // compute the carry
       masked_xor(nshares, &out[i * out_data_stride], out_msk_stride, carry, 1,
-                 &in1[i * in1_data_stride], 1);
+                 &in1[i * in1_data_stride], in1_msk_stride);
 
       if ((i == (kbits - 1)) && (i == (kbits_out - 1))) {
         return;
